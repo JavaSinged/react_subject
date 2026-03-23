@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.co.iei.subject.model.dao.SubjectDao">
+    <select id="selectSubjectList" resultType="Subject" parameterType="map">
+        SELECT
+        SUBJECT_NO as subjectNo,
+        SUBJECT_TITLE as subjectTitle,
+        SUBJECT_INSTRUCTOR as subjectInstructor,
+        SUBJECT_CATEGORY as subjectCategory,
+        SUBJECT_LEVEL as subjectLevel,
+        SUBJECT_COUNT as subjectCount
+        FROM SUBJECT_TBL
+
+        <where>
+            <if test="search != null and search != ''">
+                AND LOWER(SUBJECT_TITLE) LIKE '%' || LOWER(#{search}) || '%'
+            </if>
+
+            <if test="category != null and category != 0">
+                AND SUBJECT_CATEGORY = #{category}
+            </if>
+
+            <if test="level != null and level != 0">
+                AND SUBJECT_LEVEL = #{level}
+            </if>
+        </where>
+
+        ORDER BY
+        <if test="order == 1">SUBJECT_LEVEL ASC, SUBJECT_NO</if>
+        <if test="order == 2">SUBJECT_LEVEL DESC, SUBJECT_NO</if>
+        <if test="order == 3">SUBJECT_COUNT DESC, SUBJECT_NO</if>
+        <if test="order == 4">SUBJECT_COUNT ASC, SUBJECT_NO</if>
+        <if test="order == null or order == 0">SUBJECT_NO</if>
+    </select>
+</mapper>

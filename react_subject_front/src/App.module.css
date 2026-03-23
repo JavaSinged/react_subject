@@ -1,0 +1,110 @@
+:root {
+  /* 메인 테마 컬러 */
+  --primary-color: #4c6ef5;
+  --primary-hover: #3b5bdb;
+
+  /* 배경 및 테두리 */
+  --bg-white: #ffffff;
+  --bg-gray-light: #f8f9fa;
+  --bg-gray-hover: #f1f3f5;
+  --border-color-light: #eeeeee;
+  --border-color-strong: #dee2e6;
+
+  /* 텍스트 컬러 */
+  --text-main: #212529;
+  --text-sub: #495057;
+  --text-muted: #868e96;
+
+  /* 카테고리별 포인트 컬러 */
+  --color-frontend: #1c7ed6;
+  --bg-frontend: #e7f5ff;
+
+  --color-backend: #2b8a3e;
+  --bg-backend: #ebfbee;
+
+  --color-db: #d9480f;
+  --bg-db: #fff4e6;
+
+  /* 그림자 */
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  color: var(--text-main);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.header h1 {
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--bg-white);
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 1000px; /* 리스트와 너비 동일하게 설정 */
+  box-sizing: border-box;
+}
+
+.filter_wrap {
+  display: flex;
+  gap: 10px;
+}
+
+.filter_wrap select {
+  height: 42px;
+  border: 1px solid var(--border-color-strong);
+  border-radius: 8px;
+  padding: 0 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.search_wrap {
+  display: flex;
+  flex: 1; /* 검색창이 남은 공간을 다 씀 */
+  gap: 8px;
+}
+
+.search_text {
+  flex: 1;
+  height: 42px;
+  padding: 0 15px;
+  border: 1px solid var(--border-color-strong);
+  border-radius: 8px;
+  outline: none;
+}
+
+.submit_btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.reset_btn {
+  background-color: var(--bg-gray-light);
+  color: var(--text-sub);
+  border: 1px solid var(--border-color-strong);
+  border-radius: 8px;
+  padding: 0 20px;
+  cursor: pointer;
+}
