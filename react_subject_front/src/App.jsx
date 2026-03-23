@@ -11,7 +11,6 @@ function App() {
   const [order, setOrder] = useState(0);
   const [subjectList, setSubjectList] = useState(null);
 
-  // 공통 검색 함수 (모든 상태값을 포함)
   const Search = () => {
     axios
       .get(`${import.meta.env.VITE_BACKSERVER}/subjects`, {
@@ -26,13 +25,10 @@ function App() {
       .catch((err) => console.log('데이터를 불러오는데 실패했습니다.', err));
   };
 
-  // [버그해결] 카테고리, 레벨, 정렬이 바뀔 때마다 즉시 실행
-  // 검색어(searchText)는 엔터를 칠 때만 실행되도록 의존성 배열에서 제외했습니다.
   useEffect(() => {
     Search();
   }, [category, level, order]);
 
-  // 검색어를 지웠을 때 자동으로 전체 목록이 나오게 하고 싶다면 이 useEffect를 사용하세요
   useEffect(() => {
     if (searchText === '') {
       Search();
@@ -44,8 +40,6 @@ function App() {
     setCategory(0);
     setLevel(0);
     setOrder(0);
-    // 상태가 초기화되면 위 useEffect([category, level, order])가 감지하여
-    // 자동으로 전체 리스트를 불러옵니다.
   };
 
   return (

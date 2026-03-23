@@ -29,10 +29,9 @@ public class SubjectController {
             // 3. 난이도 (0: 전체, 1: 초급, 2: 중급, 3: 고급)
             @RequestParam(value = "level", required = false, defaultValue = "0") int level,
 
-            // 4. 정렬 (0: 작성순, 1: 난이도 ASC, 2: 난이도 DESC, 3: 인원 ASC, 4: 인원 DESC)
+            // 4. 정렬 (0: 작성순, 1: 난이도 ASC, 2: 난이도 DESC, 3: 인원 DESC, 4: 인원 ASC)
             @RequestParam(value = "order", required = false, defaultValue = "0") int order
     ) {
-        // 모든 필터 조건을 하나의 Map 또는 객체에 담아 서비스로 전달합니다.
         Map<String, Object> filterMap = new HashMap<>();
         filterMap.put("search", search);
         filterMap.put("category", category);
