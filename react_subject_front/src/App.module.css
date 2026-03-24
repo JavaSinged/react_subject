@@ -1,38 +1,46 @@
 :root {
-  /* 메인 테마 컬러 */
   --primary-color: #4c6ef5;
   --primary-hover: #3b5bdb;
-
-  /* 배경 및 테두리 */
   --bg-white: #ffffff;
   --bg-gray-light: #f8f9fa;
   --bg-gray-hover: #f1f3f5;
   --border-color-light: #eeeeee;
   --border-color-strong: #dee2e6;
-
-  /* 텍스트 컬러 */
   --text-main: #212529;
   --text-sub: #495057;
   --text-muted: #868e96;
-
-  /* 카테고리별 포인트 컬러 */
   --color-frontend: #1c7ed6;
   --bg-frontend: #e7f5ff;
-
   --color-backend: #2b8a3e;
   --bg-backend: #ebfbee;
-
   --color-db: #d9480f;
   --bg-db: #fff4e6;
-
-  /* 그림자 */
   --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  --text: #6b6375;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
 }
 
 body {
   margin: 0;
   color: var(--text-main);
+  background: var(--bg);
 }
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -47,6 +55,25 @@ body {
   margin-bottom: 30px;
 }
 
+h1,
+h2 {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+}
+
 .search_bar {
   display: flex;
   align-items: center;
@@ -57,7 +84,7 @@ body {
   box-shadow: var(--shadow-sm);
   margin-bottom: 25px;
   width: 100%;
-  max-width: 1000px; /* 리스트와 너비 동일하게 설정 */
+  max-width: 800px;
   box-sizing: border-box;
 }
 
@@ -77,7 +104,7 @@ body {
 
 .search_wrap {
   display: flex;
-  flex: 1; /* 검색창이 남은 공간을 다 씀 */
+  flex: 1;
   gap: 8px;
 }
 
@@ -107,4 +134,18 @@ body {
   border-radius: 8px;
   padding: 0 20px;
   cursor: pointer;
+}
+
+code,
+.counter {
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
 }
